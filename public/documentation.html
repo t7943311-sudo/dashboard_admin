@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaAdmin Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9fafb;
+        }
+        header {
+            background-color: #4F46E5;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        section {
+            background-color: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        h3 {
+          font-size: 1.5rem;
+        }
+        code, pre {
+            background-color: #f4f4f5;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+        }
+        code {
+            padding: 0.2em 0.4em;
+        }
+        pre {
+            padding: 1em;
+            overflow-x: auto;
+        }
+        a {
+            color: #4F46E5;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NovaAdmin Documentation</h1>
+        <p>Welcome! This guide provides everything you need to get started with the NovaAdmin template.</p>
+    </header>
+
+    <section id="introduction">
+        <h2>1. Introduction</h2>
+        <p>
+            NovaAdmin is a professional, frontend-only admin dashboard template built with modern web technologies. It is designed to be a clean, flexible, and powerful starting point for any web application, SaaS, or backend interface.
+        </p>
+        <p>This template is built on top of Next.js, React, and Tailwind CSS, providing a highly efficient and modern development experience.</p>
+    </section>
+
+    <section id="getting-started">
+        <h2>2. Getting Started</h2>
+        <p>To run the project locally, you need to have Node.js and npm installed.</p>
+        <ol>
+            <li>Open your terminal and navigate to the project directory.</li>
+            <li>Install dependencies: <pre><code>npm install</code></pre></li>
+            <li>Start the development server: <pre><code>npm run dev</code></pre></li>
+            <li>Open <a href="http://localhost:9002">http://localhost:9002</a> in your browser. (The default port is 9002, but it may be different if that port is in use).</li>
+        </ol>
+    </section>
+
+    <section id="folder-structure">
+        <h2>3. Folder Structure</h2>
+        <p>The project uses the Next.js App Router for file-based routing and organization.</p>
+        <ul>
+            <li><code>/app</code>: Contains all the application routes.
+                <ul>
+                    <li><code>/app/(dashboard)</code>: The main dashboard layout and pages.</li>
+                    <li><code>/app/(auth)</code>: Authentication-related pages (Login, Register).</li>
+                </ul>
+            </li>
+            <li><code>/components</code>: Contains all reusable React components.
+                <ul>
+                    <li><code>/components/layout</code>: Core layout components like Header and Sidebar navigation.</li>
+                    <li><code>/components/ui</code>: ShadCN UI components.</li>
+                    <li><code>/components/charts</code>: Reusable chart components.</li>
+                </ul>
+            </li>
+            <li><code>/lib</code>: Contains utility functions (<code>utils.ts</code>) and mock data (<code>mock-data.ts</code>).</li>
+            <li><code>/public</code>: Static assets like images and the documentation file.</li>
+            <li><code>/app/globals.css</code>: The main CSS file for global styles and theme variables.</li>
+            <li><code>tailwind.config.ts</code>: The configuration file for Tailwind CSS.</li>
+        </ul>
+    </section>
+
+    <section id="customization">
+        <h2>4. Customization</h2>
+        <h3>Changing the Logo</h3>
+        <p>The logo is defined in <code>src/components/layout/Logo.tsx</code>. You can replace the default SVG icon or text with your own branding.</p>
+
+        <h3>Changing Colors</h3>
+        <p>All theme colors are defined as CSS variables in <code>src/app/globals.css</code> under the <code>:root</code> (for light mode) and <code>.dark</code> (for dark mode) selectors. You can modify these HSL values to match your brand's color palette.</p>
+        <pre><code>
+{`:root {
+    --primary: 243 75% 59%; /* Indigo */
+    --background: 210 17% 98%; /* Light Gray */
+    /* ... more colors */
+}`}
+        </code></pre>
+        
+        <h3>Adding a New Page</h3>
+        <ol>
+            <li>Create a new folder inside <code>/app/(dashboard)/</code> (e.g., <code>mynewpage</code>).</li>
+            <li>Inside it, create a file named <code>page.tsx</code>.</li>
+            <li>Add your page content as a React component.</li>
+            <li>To add it to the sidebar, open <code>src/components/layout/SidebarNav.tsx</code> and add a new link to the <code>mainMenuItems</code> array.</li>
+        </ol>
+    </section>
+
+    <section id="credits">
+        <h2>5. Credits</h2>
+        <p>This template is built using a collection of fantastic open-source libraries.</p>
+        <ul>
+            <li><a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">Next.js</a></li>
+            <li><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a></li>
+            <li><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a></li>
+            <li><a href="https://ui.shadcn.com/" target="_blank" rel="noopener noreferrer">Shadcn/ui</a></li>
+            <li><a href="https://lucide.dev/" target="_blank" rel="noopener noreferrer">Lucide Icons</a></li>
+            <li><a href="https://recharts.org/" target="_blank" rel="noopener noreferrer">Recharts</a></li>
+        </ul>
+    </section>
+</body>
+</html>
