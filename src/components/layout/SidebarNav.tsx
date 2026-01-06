@@ -163,7 +163,7 @@ export function SidebarNav() {
 
         <SidebarMenu>
             <SidebarMenuItem>
-              <Link href={settingsMenuItem.href}>
+              <Link href="/settings">
                   <SidebarMenuButton
                   isActive={pathname === settingsMenuItem.href}
                   tooltip={settingsMenuItem.label}

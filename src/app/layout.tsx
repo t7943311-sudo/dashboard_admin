@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-import DashboardLayout from '@/app/dashboard/layout';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -17,10 +16,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // This layout is complex to support both dashboard and non-dashboard pages
-  // We can simplify if we know the structure
-  const isDashboardRoute = true; // Simplified for now
-
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
