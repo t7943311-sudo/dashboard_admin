@@ -12,7 +12,7 @@ export default function NotFound() {
         Sorry, we couldn&apos;t find the page you&apos;re looking for. It might have been moved or deleted.
       </p>
       <Button asChild className="mt-8">
-        <Link href="/">Go back to Dashboard</Link>
+        <Link href="/dashboard">Go back to Dashboard</Link>
       </Button>
     </div>
   )

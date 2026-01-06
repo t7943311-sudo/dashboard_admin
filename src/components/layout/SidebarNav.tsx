@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   AlertTriangle,
   ChevronRight,
+  Book,
 } from 'lucide-react';
 import {
   SidebarMenu,
@@ -33,7 +34,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const mainMenuItems = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/users', label: 'Users', icon: Users },
   { href: '/charts', label: 'Charts', icon: BarChart3 },
   { href: '/tables', label: 'Tables', icon: Table },
@@ -47,7 +48,7 @@ export function SidebarNav() {
   const pathname = usePathname();
   
   const isActive = (href: string) => {
-    if (href === '/') return pathname === href;
+    if (href === '/dashboard') return pathname === href || pathname === '/';
     return pathname.startsWith(href);
   }
 
@@ -119,36 +120,45 @@ export function SidebarNav() {
             </Link>
           </SidebarMenuItem>
           
-          <CollapsibleMenuItem icon={ShieldCheck} label="Authentication" subLinks={['/login', '/register', '/forgot-password']}>
+          <CollapsibleMenuItem icon={ShieldCheck} label="Authentication" subLinks={['/auth/login', '/auth/register', '/auth/forgot-password']}>
             <SidebarMenuSubItem>
-              <Link href="/login" passHref>
-                <SidebarMenuSubButton isActive={isActive('/login')}>Login</SidebarMenuSubButton>
+              <Link href="/auth/login">
+                <SidebarMenuSubButton isActive={isActive('/auth/login')}>Login</SidebarMenuSubButton>
               </Link>
             </SidebarMenuSubItem>
             <SidebarMenuSubItem>
-              <Link href="/register" passHref>
-                <SidebarMenuSubButton isActive={isActive('/register')}>Register</SidebarMenuSubButton>
+              <Link href="/auth/register">
+                <SidebarMenuSubButton isActive={isActive('/auth/register')}>Register</SidebarMenuSubButton>
               </Link>
             </SidebarMenuSubItem>
             <SidebarMenuSubItem>
-              <Link href="/forgot-password" passHref>
-                <SidebarMenuSubButton isActive={isActive('/forgot-password')}>Forgot Password</SidebarMenuSubButton>
+              <Link href="/auth/forgot-password">
+                <SidebarMenuSubButton isActive={isActive('/auth/forgot-password')}>Forgot Password</SidebarMenuSubButton>
               </Link>
             </SidebarMenuSubItem>
           </CollapsibleMenuItem>
 
           <CollapsibleMenuItem icon={AlertTriangle} label="Error Pages" subLinks={['/error-404', '/error-500']}>
             <SidebarMenuSubItem>
-              <Link href="/error-404" passHref>
+              <Link href="/error-404">
                 <SidebarMenuSubButton isActive={isActive('/error-404')}>404 Not Found</SidebarMenuSubButton>
               </Link>
             </SidebarMenuSubItem>
             <SidebarMenuSubItem>
-              <Link href="/error-500" passHref>
+              <Link href="/error-500">
                 <SidebarMenuSubButton isActive={isActive('/error-500')}>500 Server Error</SidebarMenuSubButton>
               </Link>
             </SidebarMenuSubItem>
           </CollapsibleMenuItem>
+
+           <SidebarMenuItem>
+            <Link href="/documentation.html" target="_blank">
+              <SidebarMenuButton tooltip="Documentation">
+                <Book className="h-4 w-4" />
+                <span>Documentation</span>
+              </SidebarMenuButton>
+            </Link>
+          </SidebarMenuItem>
         </SidebarMenu>
 
         <SidebarMenu>
@@ -164,7 +174,7 @@ export function SidebarNav() {
               </Link>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <Link href="/login">
+                <Link href="/auth/login">
                     <SidebarMenuButton tooltip="Logout">
                         <LogOut className="h-4 w-4" />
                         <span>Logout</span>

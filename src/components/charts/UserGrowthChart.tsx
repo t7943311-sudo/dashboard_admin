@@ -13,7 +13,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { userGrowth } from '@/lib/data';
+import { userGrowth } from '@/lib/mock-data';
 
 const chartConfig = {
   users: {
@@ -32,7 +32,6 @@ export function UserGrowthChart() {
       <CardContent>
         <div className="h-[300px]">
           <ChartContainer config={chartConfig} className="w-full h-full">
-            <ResponsiveContainer width="100%" height="100%">
               <BarChart data={userGrowth} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis
@@ -54,7 +53,6 @@ export function UserGrowthChart() {
                 />
                 <Bar dataKey="users" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
               </BarChart>
-            </ResponsiveContainer>
           </ChartContainer>
         </div>
       </CardContent>

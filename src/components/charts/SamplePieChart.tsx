@@ -13,7 +13,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { pieChartData } from '@/lib/data';
+import { pieChartData } from '@/lib/mock-data';
 
 const chartConfig = {
   desktop: {
@@ -40,7 +40,6 @@ export function SamplePieChart() {
       <CardContent>
         <div className="h-[300px] w-full">
           <ChartContainer config={chartConfig} className="w-full h-full">
-            <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <ChartTooltip
                   cursor={{ fill: 'hsl(var(--accent))', opacity: 0.3 }}
@@ -60,7 +59,6 @@ export function SamplePieChart() {
                   ))}
                 </Pie>
               </PieChart>
-            </ResponsiveContainer>
           </ChartContainer>
         </div>
       </CardContent>

@@ -13,7 +13,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
-import { monthlySales } from '@/lib/data';
+import { monthlySales } from '@/lib/mock-data';
 
 const chartConfig = {
   sales: {
@@ -32,7 +32,6 @@ export function MonthlySalesChart() {
       <CardContent>
         <div className="h-[300px]">
           <ChartContainer config={chartConfig} className="w-full h-full">
-            <ResponsiveContainer width="100%" height="100%">
             <LineChart
                 data={monthlySales}
                 margin={{ top: 5, right: 10, left: -10, bottom: 0 }}
@@ -53,7 +52,6 @@ export function MonthlySalesChart() {
                     activeDot={{ r: 6, fill: 'hsl(var(--primary))' }}
                 />
             </LineChart>
-            </ResponsiveContainer>
           </ChartContainer>
         </div>
       </CardContent>

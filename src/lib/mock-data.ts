@@ -1,4 +1,3 @@
-// This file is renamed to mock-data.ts
 export const monthlySales = [
   { name: 'Jan', sales: 4000 },
   { name: 'Feb', sales: 3000 },
