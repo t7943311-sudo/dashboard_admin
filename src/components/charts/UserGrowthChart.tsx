@@ -9,9 +9,18 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import {
+  ChartContainer,
+  ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import { userGrowth } from '@/lib/data';
+
+const chartConfig = {
+  users: {
+    label: "Users",
+    color: "hsl(var(--chart-1))",
+  },
+};
 
 export function UserGrowthChart() {
   return (
@@ -22,29 +31,31 @@ export function UserGrowthChart() {
       </CardHeader>
       <CardContent>
         <div className="h-[300px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={userGrowth} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} />
-              <XAxis
-                dataKey="name"
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
-                tickLine={false}
-                axisLine={false}
-              />
-              <YAxis
-                stroke="hsl(var(--muted-foreground))"
-                fontSize={12}
-                tickLine={false}
-                axisLine={false}
-              />
-              <Tooltip
-                cursor={{ fill: 'hsl(var(--accent))', opacity: 0.3 }}
-                content={<ChartTooltipContent />}
-              />
-              <Bar dataKey="users" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
+          <ChartContainer config={chartConfig} className="w-full h-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={userGrowth} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                <XAxis
+                  dataKey="name"
+                  stroke="hsl(var(--muted-foreground))"
+                  fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
+                />
+                <YAxis
+                  stroke="hsl(var(--muted-foreground))"
+                  fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
+                />
+                <ChartTooltip
+                  cursor={{ fill: 'hsl(var(--accent))', opacity: 0.3 }}
+                  content={<ChartTooltipContent />}
+                />
+                <Bar dataKey="users" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </ChartContainer>
         </div>
       </CardContent>
     </Card>

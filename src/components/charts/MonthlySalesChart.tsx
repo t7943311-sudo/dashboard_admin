@@ -9,9 +9,18 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import {
+  ChartContainer,
+  ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import { monthlySales } from '@/lib/data';
+
+const chartConfig = {
+  sales: {
+    label: "Sales",
+    color: "hsl(var(--chart-1))",
+  },
+};
 
 export function MonthlySalesChart() {
   return (
@@ -22,6 +31,7 @@ export function MonthlySalesChart() {
       </CardHeader>
       <CardContent>
         <div className="h-[300px]">
+          <ChartContainer config={chartConfig} className="w-full h-full">
             <ResponsiveContainer width="100%" height="100%">
             <LineChart
                 data={monthlySales}
@@ -30,7 +40,7 @@ export function MonthlySalesChart() {
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} />
                 <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `$${value / 1000}k`} />
-                <Tooltip
+                <ChartTooltip
                   cursor={{ stroke: 'hsl(var(--border))', strokeWidth: 2, strokeDasharray: '3 3' }}
                   content={<ChartTooltipContent />}
                 />
@@ -44,6 +54,7 @@ export function MonthlySalesChart() {
                 />
             </LineChart>
             </ResponsiveContainer>
+          </ChartContainer>
         </div>
       </CardContent>
     </Card>
