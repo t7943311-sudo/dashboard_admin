@@ -121,22 +121,22 @@ export function SidebarNav() {
           
           <CollapsibleMenuItem icon={ShieldCheck} label="Authentication" subLinks={['/login', '/register', '/forgot-password']}>
             <SidebarMenuSubItem>
-              <Link href="/login"><SidebarMenuSubButton isActive={isActive('/login')}>Login</SidebarMenuSubButton></Link>
+              <Link href="/login" legacyBehavior passHref><SidebarMenuSubButton asChild isActive={isActive('/login')}><a>Login</a></SidebarMenuSubButton></Link>
             </SidebarMenuSubItem>
             <SidebarMenuSubItem>
-              <Link href="/register"><SidebarMenuSubButton isActive={isActive('/register')}>Register</SidebarMenuSubButton></Link>
+              <Link href="/register" legacyBehavior passHref><SidebarMenuSubButton asChild isActive={isActive('/register')}><a>Register</a></SidebarMenuSubButton></Link>
             </SidebarMenuSubItem>
             <SidebarMenuSubItem>
-              <Link href="/forgot-password"><SidebarMenuSubButton isActive={isActive('/forgot-password')}>Forgot Password</SidebarMenuSubButton></Link>
+              <Link href="/forgot-password" legacyBehavior passHref><SidebarMenuSubButton asChild isActive={isActive('/forgot-password')}><a>Forgot Password</a></SidebarMenuSubButton></Link>
             </SidebarMenuSubItem>
           </CollapsibleMenuItem>
 
           <CollapsibleMenuItem icon={AlertTriangle} label="Error Pages" subLinks={['/error-404', '/error-500']}>
             <SidebarMenuSubItem>
-              <Link href="/error-404"><SidebarMenuSubButton isActive={isActive('/error-404')}>404 Not Found</SidebarMenuSubButton></Link>
+              <Link href="/error-404" legacyBehavior passHref><SidebarMenuSubButton asChild isActive={isActive('/error-404')}><a>404 Not Found</a></SidebarMenuSubButton></Link>
             </SidebarMenuSubItem>
             <SidebarMenuSubItem>
-              <Link href="/error-500"><SidebarMenuSubButton isActive={isActive('/error-500')}>500 Server Error</SidebarMenuSubButton></Link>
+              <Link href="/error-500" legacyBehavior passHref><SidebarMenuSubButton asChild isActive={isActive('/error-500')}><a>500 Server Error</a></SidebarMenuSubButton></Link>
             </SidebarMenuSubItem>
           </CollapsibleMenuItem>
         </SidebarMenu>
