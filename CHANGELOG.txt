@@ -1,0 +1,7 @@
+v1.0.0 - 2024-07-30
+--------------------------------------------------------------------------------
+- Initial release of NovaAdmin Dashboard Template.
+- All pages and features as described in the product details are included.
+- Fully responsive design.
+- Light and Dark theme support.
+- Documentation included.
