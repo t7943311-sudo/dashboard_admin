@@ -1,6 +1,7 @@
 "use client"
 
 import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -19,9 +20,16 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function SettingsPage() {
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <div className="grid gap-6">
@@ -42,16 +50,20 @@ export default function SettingsPage() {
         <CardContent>
           <div className="space-y-2">
             <Label htmlFor="theme">Theme</Label>
-            <Select onValueChange={(value) => setTheme(value)} value={theme}>
-                <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Select theme" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value="light">Light</SelectItem>
-                    <SelectItem value="dark">Dark</SelectItem>
-                    <SelectItem value="system">System</SelectItem>
-                </SelectContent>
-            </Select>
+            {mounted ? (
+              <Select onValueChange={(value) => setTheme(value)} value={theme}>
+                  <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Select theme" />
+                  </SelectTrigger>
+                  <SelectContent>
+                      <SelectItem value="light">Light</SelectItem>
+                      <SelectItem value="dark">Dark</SelectItem>
+                      <SelectItem value="system">System</SelectItem>
+                  </SelectContent>
+              </Select>
+            ) : (
+              <Skeleton className="w-[180px] h-10" />
+            )}
             <p className="text-sm text-muted-foreground">
               Select the theme for the dashboard.
             </p>
