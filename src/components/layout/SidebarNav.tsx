@@ -34,7 +34,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const mainMenuItems = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/users', label: 'Users', icon: Users },
   { href: '/charts', label: 'Charts', icon: BarChart3 },
   { href: '/tables', label: 'Tables', icon: Table },
