@@ -34,7 +34,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const mainMenuItems = [
-  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/users', label: 'Users', icon: Users },
   { href: '/charts', label: 'Charts', icon: BarChart3 },
   { href: '/tables', label: 'Tables', icon: Table },
@@ -48,8 +48,7 @@ export function SidebarNav() {
   const pathname = usePathname();
   
   const isActive = (href: string) => {
-    if (href === '/dashboard') return pathname === href || pathname === '/';
-    return pathname.startsWith(href);
+    return pathname === href;
   }
 
   const CollapsibleMenuItem = ({
@@ -63,7 +62,7 @@ export function SidebarNav() {
     children: React.ReactNode,
     subLinks?: string[],
   }) => {
-    const isParentActive = subLinks.some(link => isActive(link));
+    const isParentActive = subLinks.some(link => pathname.startsWith(link));
     const [isOpen, setIsOpen] = useState(isParentActive);
 
     React.useEffect(() => {

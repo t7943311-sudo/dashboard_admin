@@ -1,11 +1,10 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { NovaAdminLogo } from "@/components/layout/Logo"
-import AuthLayout from "./auth/layout"
 
 export default function NotFound() {
   return (
-    <AuthLayout>
+    <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <div className="flex flex-col items-center justify-center text-center px-4 bg-background">
         <NovaAdminLogo className="mb-8" />
         <h1 className="text-6xl md:text-8xl font-black text-primary animate-pulse">404</h1>
@@ -14,9 +13,9 @@ export default function NotFound() {
             Sorry, we couldn&apos;t find the page you&apos;re looking for. It might have been moved or deleted.
         </p>
         <Button asChild className="mt-8">
-            <Link href="/dashboard">Go back to Dashboard</Link>
+            <Link href="/">Go back to Dashboard</Link>
         </Button>
       </div>
-    </AuthLayout>
+    </div>
   )
 }
